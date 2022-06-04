@@ -6,7 +6,7 @@ import telebot
 from threading import Thread
 import datetime
 
-BOT_TOKEN = "5514975355:AAE2aaV_Ub0bIX5xb9fAasiFtldN9tDb3V0"
+BOT_TOKEN = ""
 BOT_INTERVAL = 3
 BOT_TIMEOUT = 30
 bot = telebot.TeleBot(BOT_TOKEN)
