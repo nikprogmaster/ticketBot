@@ -1,0 +1,13 @@
+2022-06-04 23:54:05.063373: New bot instance started
+2022-06-04 23:56:28.438326: New bot instance started
+2022-06-04 23:59:56.344746: New bot instance started
+2022-06-05 00:01:14.294705: New bot instance started
+2022-06-05 00:06:54.668586: New bot instance started
+2022-06-05 00:14:07.656023: New bot instance started
+2022-06-05 00:16:40.008491: New bot instance started
+2022-06-05 00:16:54.316651: New bot instance started
+2022-06-05 00:17:54.919064: Bot polling failed, restarting in 30sec. Error:
+unsupported operand type(s) for +: 'int' and 'str'
+2022-06-05 00:18:24.921029: New bot instance started
+2022-06-05 00:18:47.885952: New bot instance started
+2022-06-05 00:19:16.126542: New bot instance started
