@@ -33,7 +33,6 @@ def start_listening_page():
             value = soup.select('#__next > header > div.css-1z0k1xw.e1gtd2333 > div > div:nth-child(1) > span')[0].contents[0]
             if value != '0':
                 send_everyone(u)
-                os.system('open "https://youtube.com"')
                 return
         time.sleep(5)
 
