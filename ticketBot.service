@@ -1,0 +1,14 @@
+[Unit]
+Description=Ticket Bot
+After=network.target
+
+[Service]
+User=nikita
+Group=nikita
+
+WorkingDirectory=/home/nikita/ticketBot/
+Environment="PYTHONPATH=/home/nikita/ticketBot/"
+ExecStart=/usr/bin/python3 /home/nikita/ticketBoy/main.py
+
+[Install]
+WantedBy=multi-user.target
