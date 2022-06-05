@@ -36,7 +36,7 @@ def start_listening_page():
                     log("Notification sended")
                     return
             except Exception as ex:
-                log("Page requesting failed. Error:\n{}".format(ex))
+                log("Page requesting failed. Error:\n{}".format(ex.__traceback__))
 
         time.sleep(5)
 
@@ -104,6 +104,8 @@ t1 = Thread(target=start_listening_page)
 t1.daemon = True
 polling_thread.start()
 t1.start()
+
+start_listening_page()
 
 # Keep main program running while bot runs threaded
 if __name__ == "__main__":
