@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup as bs
 import time
-import os
 import telebot
 from threading import Thread
 import datetime
@@ -28,12 +27,17 @@ def start_listening_page():
     print("Started new listening thread")
     while True:
         for u in URLS:
-            resp = requests.get(u, headers=headers)
-            soup = bs(resp.text, features="html.parser")
-            value = soup.select('#__next > header > div.css-1z0k1xw.e1gtd2333 > div > div:nth-child(1) > span')[0].contents[0]
-            if value != '0':
-                send_everyone(u)
-                return
+            try:
+                resp = requests.get(u, headers=headers)
+                soup = bs(resp.text, features="html.parser")
+                value = soup.select('#__next > header > div.css-1z0k1xw.e1gtd2333 > div > div:nth-child(1) > span')[0].contents[0]
+                if value != '0':
+                    send_everyone(u)
+                    log("Notification sended")
+                    return
+            except Exception as ex:
+                log("Page requesting failed. Error:\n{}".format(ex))
+
         time.sleep(5)
 
 
