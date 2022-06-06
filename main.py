@@ -27,15 +27,20 @@ members = []
 def start_listening_page():
     print("Started new listening thread")
     while True:
+        not_zero_tickets_urls = URLS
         for u in URLS:
             try:
                 resp = requests.get(u, headers=headers)
                 soup = bs(resp.text, features="html.parser")
                 value = soup.select('#__next > header > div.css-1z0k1xw.e1gtd2333 > div > div:nth-child(1) > span')[0].contents[0]
                 if value != '0':
-                    send_everyone(u)
-                    log("Notification sended")
-                    return
+                    if u not in not_zero_tickets_urls:
+                        send_everyone(u)
+                        log("Notification sended")
+                        not_zero_tickets_urls.append(u)
+                else:
+                    if u in not_zero_tickets_urls:
+                        not_zero_tickets_urls.remove(u)
             except Exception as ex:
                 log("Page requesting failed. Error:\n{}".format(ex.with_traceback()))
 
