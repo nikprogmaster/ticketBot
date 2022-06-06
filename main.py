@@ -4,6 +4,7 @@ import time
 import telebot
 from threading import Thread
 import datetime
+import os
 
 BOT_TOKEN = ""
 BOT_INTERVAL = 3
@@ -36,7 +37,7 @@ def start_listening_page():
                     log("Notification sended")
                     return
             except Exception as ex:
-                log("Page requesting failed. Error:\n{}".format(ex.__traceback__))
+                log("Page requesting failed. Error:\n{}".format(ex.with_traceback()))
 
         time.sleep(5)
 
@@ -105,8 +106,6 @@ t1.daemon = True
 polling_thread.start()
 t1.start()
 
-start_listening_page()
-
 # Keep main program running while bot runs threaded
 if __name__ == "__main__":
     while True:
@@ -115,4 +114,3 @@ if __name__ == "__main__":
         except KeyboardInterrupt:
             break
 
-print('hehe')
